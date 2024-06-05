@@ -21,8 +21,6 @@ if (config.default == 'sqlite') {
 
 }
 
-
-
 async function createDatabase(sequelize) {
   try {
       await sequelize.authenticate();

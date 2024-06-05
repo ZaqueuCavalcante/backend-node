@@ -3,7 +3,16 @@ const router = express.Router();
 
 const NavegacaoController = require("../app/controllers/NavegacaoController");
 const TasksController = require("../app/controllers/TasksController");
+const AgendasController = require("../app/controllers/AgendasController");
 const UsersController = require("../app/controllers/UsersController");
+
+// Rotas das Agendas
+router.get('/agendas', AgendasController.list)
+router.get('/agendas/create', AgendasController.create)
+router.post('/agendas/save', AgendasController.save)
+router.post('/agendas/remove/:id', AgendasController.remove)
+router.get('/agendas/edit/:id', AgendasController.edit)
+router.post('/agendas/update', AgendasController.update)
 
 // Rotas das Tarefas
 router.get('/tasks', TasksController.list)

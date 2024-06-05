@@ -1,11 +1,14 @@
+const swaggerUi = require('swagger-ui-express');
+const swaggerFile = require('./swagger-output.json');
 const express = require("express");
 const app = express();
-
 
 const { bootstrapApp } = require('./app/bootstrap');
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}))
+
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerFile))
 
 bootstrapApp(app);
 
